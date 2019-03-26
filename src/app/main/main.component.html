@@ -1,4 +1,17 @@
-<div *ngFor="let item of list">
-  <app-card [item]="item"></app-card>
-</div>
+<div cdkDropListGroup>
+  <div class="example-container">
+    <h2>List 1</h2>
 
+    <div cdkDropList [cdkDropListData]="list" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of list" cdkDrag>{{item.title}}</div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>List 2</h2>
+
+    <div cdkDropList [cdkDropListData]="list2" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of list2" cdkDrag>{{item.title}}</div>
+    </div>
+  </div>
+</div>
