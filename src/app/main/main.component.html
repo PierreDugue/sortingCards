@@ -1,17 +1,22 @@
 <div cdkDropListGroup>
-  <div class="example-container">
-    <h2>List 1</h2>
-
-    <div cdkDropList [cdkDropListData]="list" class="example-list" (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let item of list" cdkDrag>{{item.title}}</div>
+  <div class="flex-container">
+    <div class="example-container">
+      <h2>User List</h2>
+      <div *ngIf="userList" cdkDropList [cdkDropListData]="userList.results" class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let user of userList.results" cdkDrag>
+          <app-card [item]="user"></app-card>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <div class="example-container">
-    <h2>List 2</h2>
-
-    <div cdkDropList [cdkDropListData]="list2" class="example-list" (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let item of list2" cdkDrag>{{item.title}}</div>
+    <div class="example-container">
+      <h2>Avalaible</h2>
+      <div *ngIf="avalaibleList" cdkDropList [cdkDropListData]="avalaibleList.results" class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let user of avalaibleList.results" cdkDrag>
+          <app-card [item]="user"></app-card>
+        </div>
+      </div>
     </div>
   </div>
 </div>

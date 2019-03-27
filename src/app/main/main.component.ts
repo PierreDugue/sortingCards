@@ -9,17 +9,26 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 })
 export class MainComponent implements OnInit {
 
-  public list;
-  public list2 = [
-    { title: 'Entry 4', style: 'Style 1' },
-    { title: 'Entry 5', style: 'Style 2' },
-    { title: 'Entry 6', style: 'Style 3' },
-  ];
+  public userList;
+  public avalaibleList;
 
   constructor(private cardManagerService: CardsManagerService) { }
 
   ngOnInit() {
-    this.list = this.cardManagerService.getItemList();
+
+    this.cardManagerService.getUserList().subscribe(res => {
+      this.userList = res;
+      console.log('Res', res);
+    }, error => {
+      console.log('An error occured while retrieving the user list', error);
+    });
+    this.cardManagerService.getUserList().subscribe(res => {
+      this.avalaibleList = res;
+      console.log('Res', res);
+    }, error => {
+      console.log('An error occured while retrieving the user list', error);
+    });
+  
   }
 
   drop(event: CdkDragDrop<string[]>) {

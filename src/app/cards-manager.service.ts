@@ -1,19 +1,17 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+const USERS_URL = 'https://randomuser.me/api/';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CardsManagerService {
 
-  public list = [
-    { title: 'Entry 1', style: 'Style 1' },
-    { title: 'Entry 2', style: 'Style 2' },
-    { title: 'Entry 3', style: 'Style 3' },
-  ];
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
-
-  getItemList() {
-    return this.list;
+  getUserList() {
+    return this.http.get(USERS_URL + '?results=10');
   }
+
 }
