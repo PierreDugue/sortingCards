@@ -28,7 +28,6 @@ export class MainComponent implements OnInit {
     }, error => {
       console.log('An error occured while retrieving the user list', error);
     });
-  
   }
 
   drop(event: CdkDragDrop<string[]>) {

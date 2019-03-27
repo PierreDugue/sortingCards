@@ -2,19 +2,29 @@
   <div class="flex-container">
     <div class="example-container">
       <h2>User List</h2>
-      <div *ngIf="userList" cdkDropList [cdkDropListData]="userList.results" class="example-list"
+      <div *ngIf="userList" cdkDropList [cdkDropListData]="userList.results" class="drop-zone"
         (cdkDropListDropped)="drop($event)">
         <div class="example-box" *ngFor="let user of userList.results" cdkDrag>
           <app-card [item]="user"></app-card>
         </div>
       </div>
+      <div *ngIf="avalaibleList">
+        <div class="example-box" *ngFor="let user of userList.results">
+          {{user.name | json}}
+        </div>
+      </div>
     </div>
     <div class="example-container">
       <h2>Avalaible</h2>
-      <div *ngIf="avalaibleList" cdkDropList [cdkDropListData]="avalaibleList.results" class="example-list"
+      <div *ngIf="avalaibleList" cdkDropList [cdkDropListData]="avalaibleList.results" class="drop-zone"
         (cdkDropListDropped)="drop($event)">
         <div class="example-box" *ngFor="let user of avalaibleList.results" cdkDrag>
           <app-card [item]="user"></app-card>
+        </div>
+      </div>
+      <div *ngIf="avalaibleList">
+        <div class="example-box" *ngFor="let user of avalaibleList.results">
+          {{user.name | json}}
         </div>
       </div>
     </div>
