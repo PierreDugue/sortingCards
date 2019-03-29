@@ -1,5 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+/**
+ * Individual card
+ */
+
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
