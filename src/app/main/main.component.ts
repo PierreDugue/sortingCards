@@ -21,15 +21,9 @@ export class MainComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.cardManagerService.getUserList().pipe(takeUntil(this.destroyed$)).subscribe(res => {
       this.userList = res;
-      console.log('Res', res);
-    }, error => {
-      console.log('An error occured while retrieving the user list', error);
     });
     this.cardManagerService.getUserList().pipe(takeUntil(this.destroyed$)).subscribe(res => {
       this.avalaibleList = res;
-      console.log('Res', res);
-    }, error => {
-      console.log('An error occured while retrieving the user list', error);
     });
   }
 
