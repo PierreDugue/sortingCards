@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainComponent } from './main/main.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
 
@@ -21,7 +22,8 @@ import { HttpClientModule } from '../../node_modules/@angular/common/http';
     AppRoutingModule,
     DragDropModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

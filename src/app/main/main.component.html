@@ -1,3 +1,9 @@
+<div>
+  Todo
+  <div *ngFor="let item of posts | async as list">
+    {{item.id}} - {{item.title}} - <button (click)="deletePost(item.id)">DELETE</button>
+  </div>
+</div>
 <div cdkDropListGroup>
   <div class="flex-container">
     <div class="example-container">
@@ -29,4 +35,22 @@
       </div>
     </div>
   </div>
+
+  <section class="sample-app-content">
+    <h1>Model-based Form Example:</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <p>
+        <label>First Name:</label>
+        <input type="text" formControlName="firstName">
+      </p>
+      <p>
+        <label>Password:</label>
+        <input type="password" formControlName="password">
+      </p>
+      <p>
+        <button type="submit" [disabled]="!form.valid">Submit</button>
+      </p>
+    </form>
+  </section>
+
 </div>
